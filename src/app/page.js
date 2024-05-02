@@ -1,94 +1,94 @@
-import Image from "next/image";
+'use client'
+
+// Import the CSS module
 import styles from "./page.module.css";
 
+// Import React and necessary components
+import { FaSignal } from "react-icons/fa";
+import { MdSignalWifi3Bar } from "react-icons/md";
+import { FaBatteryFull } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
+import RatingStars from './components/RatingStars';
+import { useState } from 'react';
+import { BiDislike } from "react-icons/bi";
+import { BiSolidLike } from "react-icons/bi";
+
+
 export default function Home() {
+  // State for managing rating
+  const [rating, setRating] = useState(0);
+
+  // Handler function for rating change
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+  
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className={styles.main}> 
+      <div className={styles.mobileView}>
+        <div className={styles.headerContainer}>
+          <p className={styles.timeStyle}>9:41</p>
+          <div className={styles.headerIcons}> 
+            <p><FaSignal/></p>
+            <p className={styles.networkIcon}><MdSignalWifi3Bar /></p>
+            <p><FaBatteryFull /></p>
+          </div>
         </div>
-      </div>
+        <div className={styles.headerContainer}>
+          <p><ImCross/></p>
+          <div></div>
+        </div>
+        <div className={styles.headerContainer}>
+          <p className={styles.titleStyle}>Leave a review</p>
+          <div></div>
+        </div>
+        <div className={styles.headerContainers}>
+          <p className={styles.textStyle}>safety</p>
+          <div></div>
+        </div>
+        <p className={styles.reviewText}>Lorem ipsum dolor sit amet consectetur.</p>
+        <div className={styles.ratingContainer}>
+          {/* Use the RatingStars component */}
+          <RatingStars value={rating} onChange={handleRatingChange}/>
+          <div></div>
+        </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <div className={styles.headerContainers}>
+          <p className={styles.textStyle}>communication</p>
+          <div></div>
+        </div>
+        <p className={styles.reviewText}>Lorem ipsum dolor sit amet consectetur.</p>
+        <div className={styles.ratingContainer}>
+          {/* Use the RatingStars component */}
+          <RatingStars value={rating} onChange={handleRatingChange}/>
+          <div></div>
+        </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <div className={styles.headerContainers}>
+          <p className={styles.textStyle}>Would you recommend Trausti?</p>
+          <div></div>
+        </div>
+        <p className={styles.reviewText}>Lorem ipsum dolor sit amet consectetur.</p>
+        <div className={styles.headerContainer}>
+          {/* Use the RatingStars component */}
+          <div className={styles.likeContainer}>
+            <div className={styles.likes}>
+            <BiDislike size={50}/>
+            <p>No</p>
+            </div>
+            <div className={styles.likes}>
+            <BiSolidLike size={50} color="green"/>
+            <p>Yes</p>
+            </div>
+          </div>
+          <div></div>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+        <div className={styles.headerContainers}>
+          <p className={styles.textStyle}>Praise</p>
+          <div></div>
+        </div>
+        <p className={styles.reviewText}>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
     </main>
   );
